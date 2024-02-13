@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class DeviceController {
+ +listMyDevices: Iterable<DeviceView>
+}
+
+class DeviceService {
+ +listMyDevices(): Iterable<Device>
+}
+class DeviceServiceImpl{
+ +listMyDevices(): Iterable<Device>
+}
+
+interface DeviceRepository <<interface>> {
+ +listMyDevices(): Iterable<Device>
+}
+
+
+class Device {
+    -idDevice
+    -subscription
+    -macAddress
+    -name
+    -description
+    Device(final Subscription subscription,final String macAddress ,final String name, final String description)
+}
+
+
+DeviceRepository "1" --> "0..*" Device: records
+DeviceController ..> DeviceService
+DeviceServiceImpl ..> DeviceRepository
+DeviceServiceImpl ..> Device
+DeviceService ..> Device
+DeviceServiceImpl .up.|> DeviceService
+
+@enduml

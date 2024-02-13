@@ -1,0 +1,81 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Plan{
+    -nMins
+    -maxDevices
+    -musicCollections
+    -musicSuggestions
+    -monthlyFee
+    -annualFee
+    -planState
+    -planType
+    -HTMLdescription
+    -planPromote
+   }
+
+  class PriceHistory{
+    - oldPrice_monthlyFee
+    - newPrice_monthlyFee
+    -oldPrice_annualFee
+    -newPrice_annualFee
+    -changeDate
+  }
+
+class Subscription{
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+    -cancellations
+    -subscriptions
+}
+
+class Device{
+    -idDevice
+    -subscription
+    -macAddress
+    -name
+    -description
+}
+class IDPlanCashFlow {
+   -planType
+   -cashflows
+}
+class PlanType_CashFlow {
+   -month
+   -cashflow
+   -year
+}
+
+
+class Roles{}
+
+
+
+class User{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+}
+class RevenueByPlan {
+    -planType
+    -totalRevenue
+
+}
+
+User --> Plan
+User --> Roles
+User --> Subscription
+User --> Device
+Plan "1" --> "*" Subscription
+Subscription "1" --> "*" Device
+PriceHistory "*" --> "1" Plan
+IDPlanCashFlow  -->  Plan
+IDPlanCashFlow "1" --> "*" PlanType_CashFlow
+Plan  --down-> RevenueByPlan
+User --left-> PriceHistory
+@enduml

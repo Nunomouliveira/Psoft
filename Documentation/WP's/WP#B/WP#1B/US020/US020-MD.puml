@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+title Promote a Plan
+
+class Plan{
+    -nMins
+    -maxDevices
+    -musicCollections
+    -musicSuggestions
+    -monthlyFee
+    -annualFee
+    -planState
+    -planType
+    -HTMLdescription
+    -planPromote
+   }
+
+class User{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+}
+
+User "1" -right--> "1..*" Plan: promotes
+
+@enduml

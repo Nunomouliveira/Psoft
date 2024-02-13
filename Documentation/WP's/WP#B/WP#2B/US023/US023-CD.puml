@@ -1,0 +1,46 @@
+@startuml
+class SubscriptionController {
+ +RenewAnnualSubscription(long id);
+}
+
+
+
+class SubscriptionService {
+ +RenewAnnualSubscription(long id);
+}
+class SubscriptionServiceImpl{
++RenewAnnualSubscription(long id);
++subscription.setRenewDate(LocalDate.now().plusYears(1));
++subscription.setRenewDate(LocalDate.now().plusMonths(1));
++subscription.setSubState(SubscriptionStatus.Active);
+}
+
+interface SubscriptionRepository <<interface>> {
+ +findSubscriptionIdByUserId(id)
+ +getById(idSub)
+ +save( Subscription): Result
+}
+
+
+class Subscription {
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+    Subscription(int id, string subType, date date, string subState, string feeType)
+    +getID(): int
+    +getSubType(): string
+    +getDate(): date
+    +getSubState(): string
+    +getFeeType(): string
+
+}
+
+SubscriptionRepository "1" --> "0..*" Subscription:  records
+SubscriptionController ..> SubscriptionService
+SubscriptionServiceImpl ..> SubscriptionRepository
+SubscriptionServiceImpl ..> Subscription
+SubscriptionService ..> Subscription
+SubscriptionServiceImpl .up.|> SubscriptionService
+@enduml

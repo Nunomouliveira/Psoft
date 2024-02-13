@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class SubscriptionController {
+ +getDashboardData(): ResponseEntity<DashBoardView>
+}
+
+class SubscriptionService {
+ +forDashBoard(startDate, endDate): Subscription
+}
+class SubscriptionServiceImpl{
+ +forDashBoard(startDate, endDate): Subscription
+}
+
+
+interface SubscriptionRepository <<interface>> {
+ +countSubscriptionsByDatesAndStatus(startDate, endDate, SubscriptionStatus.Active): Result
+ +countSubscriptionsByDatesAndStatus1(startDate, endDate, SubscriptionStatus.Cancelled): Result
+}
+
+class Subscription {
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+    (final Plan plan, final User user, final String feeType)
+     +setSubscriptions(activeCount): void
+     +setCancellations(cancelledCount): void
+}
+
+SubscriptionRepository "1" --> "0..*" Subscription:  records
+SubscriptionController ..> SubscriptionService
+SubscriptionServiceImpl ..> SubscriptionRepository
+SubscriptionServiceImpl ..> Subscription
+SubscriptionService ..> Subscription
+SubscriptionServiceImpl .up.|> SubscriptionService
+
+
+@enduml

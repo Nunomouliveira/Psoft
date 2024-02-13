@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class DeviceController {
+ +upsert(): ResponseEntity<DeviceView>
+}
+
+class DeviceService {
+ +update(macAddress, resource, getVersionFromIfMatchHeader(ifMatchValue)): Device
+}
+class DeviceServiceImpl{
+ +update(macAddress, resource, getVersionFromIfMatchHeader(ifMatchValue)): Device
+}
+
+interface DeviceRepository <<interface>> {
+ +save(device): Result
+ +findOne(final String macAddress): Result
+}
+
+
+class Device {
+    -idDevice
+    -subscription
+    -macAddress
+    -name
+    -description
+    Device(final Subscription subscription,final String macAddress ,final String name, final String description)
+    +applyPatch(desiredVersion, resource.getName(), resource.getDescription())
+}
+
+
+DeviceRepository "1" --> "0..*" Device:  records
+DeviceController ..> DeviceService
+DeviceServiceImpl ..> DeviceRepository
+DeviceServiceImpl ..> Device
+DeviceService ..> Device
+DeviceServiceImpl .up.|> DeviceService
+
+@enduml

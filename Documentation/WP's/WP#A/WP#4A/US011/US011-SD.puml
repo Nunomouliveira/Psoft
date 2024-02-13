@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autoactivate on
+autonumber
+
+actor "Subscriber" as User
+participant ":DeviceController" as Ctrl
+participant "deviceService:DeviceService" as Service
+participant "deviceServiceImpl:DeviceServiceImpl" as Impl
+participant "editDeviceMapper:EditDeviceMapper" as EditMapper
+participant "Device" as Device
+participant "deviceRepository:deviceRepository" as Repo
+activate User
+
+User -> Ctrl: POST(/api/device/add)
+Ctrl -> Service: create(final CreateDeviceRequest device)
+Service -> Impl: create(final CreateDeviceRequest device)
+Impl -> EditMapper: create(final CreateDeviceRequest device)
+EditMapper -> Device**: create(final CreateDeviceRequest device)
+Device --> EditMapper: device
+EditMapper -> Repo: save(device)
+Repo --> Service: device
+Service --> Ctrl: device
+Ctrl --> User: 201:Created
+
+@enduml

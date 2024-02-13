@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "planRepository:planRepository" as Repo
+participant "plan:Plan" as Plan
+participant "resource:EditPlanRequest" as Resource
+
+activate User
+
+User -> Ctrl: PATCH(/api/plan/{idPlan})
+Ctrl -> Service: partialUpdate(idPlan, resource, getVersionFromIfMatchHeader(ifMatchValue),user)
+Service -> Impl: partialUpdate(idPlan, resource, getVersionFromIfMatchHeader(ifMatchValue),user)
+Impl -> Repo: findById(idPlan)
+Repo --> Impl: plan
+Impl -> Repo: unpromoteEveryPlan("Not Promoted")
+Repo --> Impl: ok
+Impl -> Resource: setPlanPromote("Promote")
+Resource --> Impl: resource
+Impl -> Plan: applyPatch(desiredVersion, resource.getNumMinutes(), resource.getMaxDevices(), resource.getMusicCollections(), resource.getMusicSuggestions(),\nresource.getPlanState(), resource.getPlanPromote(), resource.getMonthlyFee(), resource.getAnnualFee(), resource.getHtmlDescription());
+Plan --> Impl: ok
+Impl -> Repo: save( plan)
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: plan
+Ctrl --> User: 200:OK
+@enduml

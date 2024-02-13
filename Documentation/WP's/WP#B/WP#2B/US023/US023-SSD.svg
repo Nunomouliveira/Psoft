@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="288px" preserveAspectRatio="none" style="width:255px;height:288px;background:#FFFFFF;" version="1.1" viewBox="0 0 255 288" width="255px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="210" x="21.5" y="30.1074">renew my annual subscription</text><rect fill="#FFFFFF" height="63.582" style="stroke:#181818;stroke-width:1.0;" width="10" x="37" y="133.2422"/><rect fill="#FFFFFF" height="31.291" style="stroke:#181818;stroke-width:1.0;" width="10" x="212" y="156.5332"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="42" x2="42" y1="123.2422" y2="205.8242"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="217" x2="217" y1="123.2422" y2="205.8242"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="5" y="119.7285">Subscriber</text><ellipse cx="42" cy="53.1211" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M42,61.1211 L42,88.1211 M29,69.1211 L55,69.1211 M42,88.1211 L29,103.1211 M42,88.1211 L55,103.1211 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="5" y="219.9316">Subscriber</text><ellipse cx="42" cy="231.9453" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M42,239.9453 L42,266.9453 M29,247.9453 L55,247.9453 M42,266.9453 L29,281.9453 M42,266.9453 L55,281.9453 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="64" x="185" y="89.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="192" y="111.7285">:System</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="64" x="185" y="204.8242"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50" x="192" y="226.9316">:System</text><rect fill="#FFFFFF" height="63.582" style="stroke:#181818;stroke-width:1.0;" width="10" x="37" y="133.2422"/><rect fill="#FFFFFF" height="31.291" style="stroke:#181818;stroke-width:1.0;" width="10" x="212" y="156.5332"/><polygon fill="#181818" points="200,152.5332,210,156.5332,200,160.5332,204,156.5332" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="47" x2="206" y1="156.5332" y2="156.5332"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="54" y="151.2705">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="135" x="65" y="151.2705">PATCH(/api/sub/renew)</text><polygon fill="#181818" points="58,183.8242,48,187.8242,58,191.8242,54,187.8242" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="52" x2="216" y1="187.8242" y2="187.8242"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="64" y="182.5615">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="46" x="75" y="182.5615">200: Ok</text><!--MD5=[ea6e71b745a80ce43143b96ea56474a6]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title renew my annual subscription
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: PATCH(/api/sub/renew)
+System - -> MarketingDirector: 200: Ok
+
+@enduml
+
+@startuml
+
+title renew my annual subscription
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: PATCH(/api/sub/renew)
+System - -> MarketingDirector: 200: Ok
+
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 13:22:17 WET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

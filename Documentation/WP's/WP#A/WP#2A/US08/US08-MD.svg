@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="143px" preserveAspectRatio="none" style="width:216px;height:143px;background:#FFFFFF;" version="1.1" viewBox="0 0 216 143" width="216px" zoomAndPan="magnify"><defs/><g><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><g id="elem_User"><rect codeLine="7" fill="#F1F1F1" height="36.6211" id="User" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="35" x="7" y="53.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="10" y="73.6074">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="41" y1="82.1211" y2="82.1211"/></g><!--MD5=[545507b7baa8aade59e57dce916f0187]
+class Subscription--><g id="elem_Subscription"><rect codeLine="11" fill="#F1F1F1" height="129.7266" id="Subscription" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="84" x="125.5" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="128.5" y="27.1074">Subscription</text><line style="stroke:#181818;stroke-width:0.5;" x1="126.5" x2="208.5" y1="35.6211" y2="35.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="16" x="131.5" y="54.7285">-id</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="131.5" y="73.3496">-subType</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="131.5" y="91.9707">-date</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="131.5" y="110.5918">-subState</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="131.5" y="129.2129">-feeType</text></g><!--MD5=[7f888aabaf38af3558213e57093f9bce]
+link User to Subscription--><g id="link_User_Subscription"><path codeLine="20" d="M42.03,72 C61.33,72 93.17,72 119.94,72 " fill="none" id="User-to-Subscription" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="125.22,72,116.22,68,120.22,72,116.22,76,125.22,72" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="47" x="60.25" y="65.0283">Cancels</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="50.0477" y="65.9154">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="97.5414" y="87.3182">1..*</text></g><!--MD5=[2bbc047990d4207b609b937eac295ea1]
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+
+class User{
+
+}
+
+class Subscription{
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+}
+
+
+User "1" -> "1..*" Subscription: Cancels
+
+
+@enduml
+
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+
+class User{
+
+}
+
+class Subscription{
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+}
+
+
+User "1" -> "1..*" Subscription: Cancels
+
+
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 13:22:17 WET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

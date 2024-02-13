@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title o migrate all subscribers of a certain plan to a different plan
+
+
+autoactivate on
+autonumber
+
+actor "Marketing Director" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: PUT(/api/sub/)
+System --> MarketingDirector: 200:Ok
+
+@enduml

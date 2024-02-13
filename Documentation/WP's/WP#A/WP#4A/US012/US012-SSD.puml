@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Remove a Device from Subscription
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as Subscriber
+participant ":System" as System
+
+activate Subscriber
+
+Subscriber -> System: DELETE(/api/device/{macAddress})
+System --> Subscriber: 204 - No Content
+
+@enduml

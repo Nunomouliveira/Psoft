@@ -1,0 +1,34 @@
+@startuml
+
+class DeviceController {
+    +deleteByMacAddress(String macAddress, long desiredVersion): ResponseEntity<DeviceView>
+}
+
+class DeviceService {
+    +deleteByMacAddress(String macAddress, long desiredVersion): ResponseEntity<Device>
+}
+class DeviceServiceImpl{
+    +deleteByMacAddress(String macAddress, long desiredVersion): ResponseEntity<Device>
+}
+
+interface DeviceRepository <<interface>> {
+    +delete(device): Result
+}
+
+class Device {
+    -idDevice
+    -subscription
+    -macAddress
+    -name
+    -description
+    Device(final Subscription subscription,final String macAddress ,final String name, final String description)
+}
+
+DeviceRepository "1" --> "0..*" Device:  records
+DeviceController ..> DeviceService
+DeviceServiceImpl ..> DeviceRepository
+DeviceServiceImpl ..> Device
+DeviceService ..> Device
+DeviceServiceImpl .up.|> DeviceService
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+title renew subscription
+
+class Subscription{
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+    -cancellations
+    -subscriptions
+}
+
+class User{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+}
+
+User "1" -right--> "1..*" Subscription: renewes
+
+@enduml

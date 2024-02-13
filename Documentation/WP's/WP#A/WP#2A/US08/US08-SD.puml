@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+
+activate User
+
+User -> Ctrl: PUT(/api/sub/cancel)
+Ctrl -> Service: updateState(Long id)
+Service -> Impl: updateState(Long id)
+Impl -> Repo: getSubState()
+Repo --> Impl: ok
+Impl -> Repo: subscription.setSubState(SubscriptionStatus.Cancelled)
+Repo --> Impl: Cancelled
+
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 204 : No Content
+
+@enduml

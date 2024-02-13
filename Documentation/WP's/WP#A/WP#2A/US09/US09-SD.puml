@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+
+activate User
+
+User -> Ctrl: GET(/api/sub/mySub)
+Ctrl -> Service: findOne(Long id)
+Service -> Impl: findOne(Long id)
+Impl -> Repo: findByUser(user)
+Repo --> Impl: Username
+Impl -> Repo: ResponseEntity.ok()
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 200 : ok
+@enduml

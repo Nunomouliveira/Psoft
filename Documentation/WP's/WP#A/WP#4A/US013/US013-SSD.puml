@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Update the Details of my Device (name and description)
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as Subscription
+participant ":System" as System
+
+activate Subscription
+
+Subscription -> System: PUT(/api/device/{macAddress})
+System --> Subscription: 200:OK
+
+@enduml

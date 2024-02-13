@@ -1,0 +1,80 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "planRepository:planRepository" as Repo
+participant "subscriptionRepository:SubscriptionRepository" as RepoSub
+participant "iDPlanCashFlow:IDPlanCashFlow" as IDPlan
+participant "PlanType_CashFlow:PlanType_CashFlow" as CashFlow
+
+
+activate User
+
+User -> Ctrl: GET(/api/plan/dashboard/futureCashFlowsByPlan?numberOfMonths=&page=&size=)
+Ctrl -> Service: forDashBoardFutureCashflows(Integer numberOfMonths, Integer page, Integer batchSize)
+Service -> Impl: forDashBoardFutureCashflows(Integer numberOfMonths, Integer page, Integer batchSize)
+Impl -> Repo: findSomePlans(pageable)
+Repo -> Impl: plans
+Impl -> IDPlan: ArrayList<IDPlanCashFlow>()
+
+loop for each item in idPlanCashFlows
+
+     loop months "of" previous years month until the current year
+
+            loop previousYearsMonths until the "end" "of" the year
+
+                Impl -> RepoSub : calculateRevenueByMonth()
+                RepoSub --> Impl: revenue
+                Impl -> RepoSub : calculateRevenueByMonth()
+                RepoSub --> Impl: revenue1
+
+            end
+
+     end
+
+    loop for month 1 until currentMonth + 1
+
+                 Impl -> RepoSub : calculateRevenueByMonth()
+                 RepoSub --> Impl: revenue
+                 Impl -> RepoSub : calculateRevenueByMonth()
+                 RepoSub --> Impl: revenue1
+
+    end
+
+
+     loop months "of" previous years until the current year
+
+            loop previousYearsMonths until the "end" "of" the year
+
+                Impl -> RepoSub : calculateAnnualRevenue()
+                RepoSub --> Impl: annualRevenue_LastYear
+                Impl -> RepoSub : calculateAnnualRevenue()
+                RepoSub --> Impl: annualRevenue_LastYear1
+
+            end
+
+     end
+
+    loop for month 1 until currentMonth + 1
+
+                Impl -> RepoSub : calculateAnnualRevenue()
+                RepoSub --> Impl: annualRevenue_ThisYear
+                Impl -> RepoSub : calculateAnnualRevenue()
+                RepoSub --> Impl: annualRevenue_ThisYear1
+    end
+
+ end
+ Impl -> CashFlow**: create
+ CashFlow --> Impl : cashFlow (add to Array<IDPlanCashFlow>)
+
+Impl --> Service : ok
+Service --> Ctrl
+Ctrl --> User: 200:OK
+
+@enduml

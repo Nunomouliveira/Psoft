@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Cease a Plan
+
+autoactivate on
+autonumber
+
+actor "Marketing Director" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: DELETE(/api/plan/{idplan})
+System --> MarketingDirector: 204:No Content
+
+@enduml

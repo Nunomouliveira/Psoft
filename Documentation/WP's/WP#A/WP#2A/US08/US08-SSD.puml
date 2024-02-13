@@ -1,0 +1,16 @@
+@startuml
+
+autonumber
+actor "Device" as A
+
+activate A
+A -> ":System" : DELETE(/api/sub/{id})
+activate ":System"
+":System" --> A : 204 : No Content
+deactivate ":System"
+
+
+
+deactivate A
+
+@enduml

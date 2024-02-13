@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+hide circle
+hide methods
+left to right direction
+
+class Plan {
+    - -nMins
+                    -maxDevices
+                    -musicCollections
+                    -musicSuggestions
+                    -monthlyFee
+                    -annualFee
+                    -planState
+                    -planType
+                    -activeSubs
+                    -HTMLdescription
+}
+
+class Device {
+     -id
+        -idSub
+        -name
+        -description
+}
+
+class Role {
+
+}
+
+Device "1" --- "1..*" Role: has a
+Role "1" -down-- "1" Plan: is admin and boostraps
+
+
+
+
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title switch my plan (upgrade/downgrade)
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: PATCH(/api/sub/{idPlan})
+System --> MarketingDirector: 200:OK
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as User
+participant ":DeviceController" as Ctrl
+participant "deviceService:DeviceService" as Service
+participant "deviceServiceImpl:DeviceServiceImpl" as Impl
+participant "deviceRepository:deviceRepository" as Repo
+participant ":Device" as Device
+
+activate User
+
+User -> Ctrl: PUT(/api/device/{macAddress})
+Ctrl -> Service: update(String macAddress, EditDeviceRequest resource, long desiredVersion)
+Service -> Impl: update(String macAddress, EditDeviceRequest resource, long desiredVersion)
+Impl -> Repo: findOne(final String macAddress)
+Repo --> Impl: device
+Impl -> Device: applyPatch(desiredVersion, resource.getName(), resource.getDescription())
+Device --> Impl: ok
+Impl -> Repo: save(device)
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: device
+Ctrl --> User: 200:OK
+@enduml

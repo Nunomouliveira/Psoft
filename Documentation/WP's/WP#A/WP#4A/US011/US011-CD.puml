@@ -1,0 +1,35 @@
+@startuml
+class DeviceController {
+ +create(final CreateDeviceRequest resource) : ResponseEntity<DeviceView>
+}
+
+class DeviceService {
+ +create(final CreateDeviceRequest resource): Device
+}
+
+class DeviceServiceImpl{
++create(final CreateDeviceRequest resource): Device
+}
+
+interface DeviceRepository <<interface>> {
+ +save(device): Device
+}
+
+class Device {
+    -idDevice
+    -subscription
+    -macAddress
+    -name
+    -description
+    Device(final Subscription subscription,final String macAddress ,final String name, final String description)
+    +create(final CreateDeviceRequest resource)
+}
+
+DeviceRepository "1" --> "0..*" Device:  records
+DeviceController ..> DeviceService
+DeviceServiceImpl ..> DeviceRepository
+DeviceServiceImpl ..> Device
+DeviceService ..> Device
+DeviceServiceImpl .up.|> DeviceService
+
+@enduml

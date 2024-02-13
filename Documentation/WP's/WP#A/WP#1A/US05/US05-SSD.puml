@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as Person
+participant ":System" as System
+
+activate Person
+
+Person -> System: PATCH(api/plan/edit/{planType})
+System --> Person: 200:OK
+
+@enduml

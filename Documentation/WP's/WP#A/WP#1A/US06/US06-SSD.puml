@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "New customer" as Person
+participant ":System" as System
+
+activate Person
+
+Person -> System:  GET(/api/plan/all)
+System --> Person: 200:OK
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as Person
+participant ":System" as System
+
+activate Person
+
+Person -> System: PUT(/api/plan/create/{planType})
+
+System --> Person: 201:Created
+@enduml

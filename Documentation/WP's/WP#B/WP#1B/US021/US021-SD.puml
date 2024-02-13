@@ -1,0 +1,71 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "planRepository:planRepository" as planRepo
+participant "ceasedPlansRepository:ceasedPlansRepository" as ceasedPlansRepo
+participant "subscriptionRepository:subscriptionRepository" as subscriptionRepo
+participant "Plan" as Plan
+
+activate User
+
+User -> Ctrl: DELETE(/api/plan/{idPlan})
+Ctrl -> Service: ceasePlanById(Long idPlan, long desiredVersion)
+Service -> Impl: ceasePlanById(Long idPlan, long desiredVersion)
+Impl -> planRepo: findById(idPlan)
+planRepo --> Impl: plan
+Impl -> subscriptionRepo: countSubscriptionsByPlan(idPlan, SubscriptionStatus.Active)
+subscriptionRepo --> Impl: count
+Impl -> subscriptionRepo: findSubscriptionIdsByIdPlan(idPlan)
+subscriptionRepo --> Impl: List<Long>SubscriptionIds
+Impl -> ceasedPlansRepo: save(plan)
+ceasedPlansRepo --> Impl: ok
+Impl -> Plan:Plan: new Plan(planType + " - Ceased " + randomNumber, numMinutes, maxDevices, musicCollections, musicSuggestions, monthlyFee, annualFee, htmlDescription)
+Plan --> Impl : plan
+Impl -> Plan:setPlanState("Ceased")
+Plan --> Impl: ok
+Impl -> planRepo:save(plan)
+planRepo --> Impl: ok
+loop SubscriptionIds
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getMonthlyFee()
+        Plan --> Impl : MonthlyFee
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getMonthlyFee()
+        Plan --> Impl : MonthlyFee
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getAnnualFee()
+        Plan --> Impl : AnnualFee
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getAnnualFee()
+        Plan --> Impl : AnnualFee
+
+        Impl -> Subscription:setPlan(ceasingRepository.getByPlanType(ceasedPlan.getPlanType()));
+        Subscription --> Impl: ok
+
+        Impl -> subscriptionRepo:save(subscription)
+        subscriptionRepo --> Impl:ok
+
+
+    end
+Impl -> planRepo:deleteByIdIfMatch(idPlan, desiredVersion)
+planRepo --> Impl:ok
+
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 204: No Content
+@enduml

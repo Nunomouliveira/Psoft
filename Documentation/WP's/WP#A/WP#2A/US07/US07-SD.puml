@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+
+activate User
+
+User -> Ctrl: POST(/api/sub/create)
+Ctrl -> Service: create(CreateSubscriptionRequest resource)
+Service -> Impl: create(CreateSubscriptionRequest resource)
+Impl -> Repo: create(final CreateSubscriptionRequest resource)
+Repo --> Impl: Subscription
+Impl -> Repo: save( Subscription)
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 201:Created
+@enduml
+
+

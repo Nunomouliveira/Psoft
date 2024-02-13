@@ -1,0 +1,18 @@
+@startuml
+
+autonumber
+actor "User" as A
+
+activate A
+A -> ":System" : GET(/api/sub/{username})
+activate ":System"
+":System" --> A :200 : ok
+deactivate ":System"
+
+
+
+
+
+deactivate A
+
+@enduml

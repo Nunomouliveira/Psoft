@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+
+
+class PlanController {
+ +DEACTIVATED(): ResponseEntity<PlanView>
+}
+
+
+
+class PlanService {
+ +updateState(String planType): Plan
+}
+class ProductServiceImpl{
+ +updateState(String planType): Plan
+}
+
+interface PlanRepository <<interface>> {
+ +save(plan): Result
+ +findByPlanType(planType): Plan
+}
+
+
+class Plan {
+    -nMins
+    -maxDevices
+    -musicCollections
+    -musicSuggestions
+    -monthlyFee
+    -annualFee
+    -planState
+    -planType
+    -planPromote
+    -HTMLdescription
+Plan(final String planType, final Integer numMinutes, final Integer maxDevices, final Integer musicCollections,
+                        final String musicSuggestions, final Integer monthlyFee, final Integer annualFee,
+                        final String htmlDescription)
+ +setPlanState(planState): void
+}
+
+
+PlanRepository "1" --> "0..*" Plan:  records
+PlanController ..> PlanService
+ProductServiceImpl ..> PlanRepository
+
+ProductServiceImpl ..> Plan
+PlanService ..> Plan
+ProductServiceImpl .up.|> PlanService
+
+@enduml

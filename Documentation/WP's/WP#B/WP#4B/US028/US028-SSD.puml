@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+autoactivate on
+autonumber
+
+actor "Marketing Director" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: GET(api/plan/priceHistory?idPlan=&page=&size=)
+System --> MarketingDirector: 200:OK
+
+@enduml

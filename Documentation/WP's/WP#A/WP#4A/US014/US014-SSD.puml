@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Lists Devices
+
+autoactivate on
+autonumber
+
+actor "Subscription" as Subscription
+participant ":System" as System
+
+activate Subscription
+
+Subscription -> System: GET(/api/device/myDevices)
+System --> Subscription: 200:OK
+
+@enduml

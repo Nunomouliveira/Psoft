@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+autoactivate on
+
+autonumber
+
+actor "Subscriber" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "Subscription" as Subscription
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+participant "planRepository:PlanRepository" as PlanRepo
+
+
+activate User
+
+User -> Ctrl: PATCH(/api/sub/{idPlan})
+Ctrl -> Service: switchPlan(Long idPlan, Long id);
+Service -> Impl: switchPlan(Long idPlan, Long id);
+Impl -> Repo: findSubscriptionIdByUserId(id)
+Repo--> Impl: Long UserId
+Impl -> PlanRepo : findById(idPlan)
+PlanRepo --> Impl: plan
+Impl -> Subscription:  setRenewDate(LocalDate.now().plusYears(1)));
+Subscription --> Impl: Ok
+Impl -> Subscription: setRenewDate(LocalDate.now().plusMonths(1)));
+Subscription --> Impl: Ok
+Impl -> Subscription: setPlan(plan);
+Subscription --> Impl: Ok
+Impl -> Repo: save(subscriptionOptional.get())
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 200:0K
+@enduml

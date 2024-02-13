@@ -1,0 +1,15 @@
+@startuml
+
+autonumber
+actor "User" as A
+
+activate A
+A -> ":System" :POST(/api/sub/{username})
+activate ":System"
+":System" --> A :201:Created
+deactivate ":System"
+
+
+deactivate A
+
+@enduml

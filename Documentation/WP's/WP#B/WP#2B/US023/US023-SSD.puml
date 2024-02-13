@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title renew my annual subscription
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: PATCH(/api/sub/renew)
+System --> MarketingDirector: 200: Ok
+
+@enduml

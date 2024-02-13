@@ -1,0 +1,23 @@
+@startuml
+ 'https://plantuml.com/class-diagram
+
+ hide circle
+ skinparam classAttributeIconSize 0
+
+ class UserBootstrapper {
+    +CommandLineRunner
+ }
+
+class User{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+    User(String username, String fullname, String password, String rePassword, String authorities)
+}
+
+
+ UserBootstrapper "1" --> "0.." User:  creates
+
+ @enduml

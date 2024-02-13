@@ -1,0 +1,62 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+class PlanController {
+ +ceasePlan(): ResponseEntity<PlanView>
+}
+
+class PlanService {
+ +ceasePlanById(Long idPlan, long desiredVersion): Plan
+}
+
+class PlanServiceImpl{
+ +ceasePlanById(Long idPlan, long desiredVersion): Plan
+ }
+
+interface PlanRepository <<interface>> {
+  +findById(idPlan): Plan
+  +deleteByIdIfMatch(idPlan, desiredVersion): Result
+}
+
+interface CeasedPlansRepository <<interface>> {
+  +countSubscriptionsByPlan(idPlan, SubscriptionStatus.Active): Result
+  +save(Plan ceasedPlan)
+  +unpromoteEveryPlan(newPromote)
+}
+
+interface SubscriptionRepository <<interface>> {
+  +countSubscriptionsByPlan(idPlan, SubscriptionStatus.Active): Result
+  +findSubscriptionIdsByIdPlan(Long idPlan): List<Long>
+  +save(Subscription subscription)
+}
+
+class Plan {
+    -nMins
+    -maxDevices
+    -musicCollections
+    -musicSuggestions
+    -monthlyFee
+    -annualFee
+    -planState
+    -planType
+    -planPromote
+    -HTMLdescription
+    Plan(final String planType, final Integer numMinutes, final Integer maxDevices, final Integer musicCollections,final String musicSuggestions, final Integer monthlyFee, final Integer annualFee,
+                        final String htmlDescription)
+}
+
+PlanRepository "1" --> "0..*" Plan:  records
+CeasedPlansRepository "1" --> "0..*" Plan:  records
+SubscriptionRepository "1" --> "0..*" Plan:  records
+PlanController ..> PlanService
+PlanServiceImpl ..> PlanRepository
+PlanServiceImpl ..> CeasedPlansRepository
+PlanServiceImpl ..> SubscriptionRepository
+PlanServiceImpl ..> Plan
+PlanService ..> Plan
+PlanServiceImpl .up.|> PlanService
+
+@enduml

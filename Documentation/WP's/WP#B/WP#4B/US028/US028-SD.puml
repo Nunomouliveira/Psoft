@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autoactivate on
+autonumber
+
+actor "Marketing Director" as MarketingDirector
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "planRepository:planRepository" as Repo
+participant "priceHistoryRepository:PriceHistoryRepository" as RepoHistory
+
+activate MarketingDirector
+
+MarketingDirector -> Ctrl: GET(api/plan/priceHistory?idPlan=&page=&size=)
+Ctrl -> Service: findAllPriceHistory(Long id,Integer page, Integer batchSize)
+Service -> Impl: findAllPriceHistory(Long id,Integer page, Integer batchSize)
+Impl -> Repo: findById(idPlan)
+Repo --> Impl: plan
+Impl -> RepoHistory: searchByPlanType(planType,pageable)
+RepoHistory --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> MarketingDirector: 200:OK
+
+@enduml

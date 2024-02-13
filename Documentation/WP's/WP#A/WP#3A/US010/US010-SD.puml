@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+
+
+actor "Product Manager" as User
+participant ":SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "subscriptionServiceImpl:SubscriptionServiceImpl" as Impl
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+participant "Subscription" as Subscription
+
+activate User
+
+User ->Ctrl : GET(api/sub/dashboard/newSubAndCancel)
+Ctrl -> Service: forDashBoard(startDate, endDate)
+Service -> Impl: forDashBoard(startDate, endDate)
+Impl -> Repo:countSubscriptionsByDatesAndStatus(startDate, endDate, SubscriptionStatus.Active)
+Repo --> Impl: (subscriptionsCount)
+Impl -> Repo:countSubscriptionsByDatesAndStatus1(startDate, endDate, SubscriptionStatus.Cancelled)
+Repo --> Impl: (cancelledCount)
+Impl -> Subscription: setSubscriptions(subscriptionsCount)
+Subscription --> Impl: ok
+Impl -> Subscription: setCancellations(cancelledCount)
+Subscription --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 200:OK
+@enduml

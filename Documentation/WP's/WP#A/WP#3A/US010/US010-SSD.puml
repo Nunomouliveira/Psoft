@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Product Manager" as Person
+participant ":System" as System
+
+activate Person
+
+Person -> System:GET(api/sub/dashboard/newSubAndCancel)
+
+System --> Person: 200:OK
+
+@enduml

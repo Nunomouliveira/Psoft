@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "planRepository:planRepository" as Repo
+participant "Plan" as Plan
+
+activate User
+
+User -> Ctrl: PUT(/api/plan/deactivate/{planType})
+Ctrl -> Service: updateState(String planType)
+Service -> Impl:updateState(String planType)
+Impl -> Repo: findByPlanType(String id)
+Repo --> Impl: plan
+Impl -> Plan: setPlanState(PlanStatus.DEACTIVATED)
+Plan --> Impl: ok
+Impl -> Repo: save( plan)
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: plan
+Ctrl --> User: 200:OK
+@enduml

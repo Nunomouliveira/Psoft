@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Add a New Device to Subscription
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as Subscriber
+participant ":System" as System
+
+activate Subscriber
+
+Subscriber -> System: POST(/api/device/add)
+System --> Subscriber: 201:Created
+
+@enduml

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="499px" preserveAspectRatio="none" style="width:1081px;height:499px;background:#FFFFFF;" version="1.1" viewBox="0 0 1081 499" width="1081px" zoomAndPan="magnify"><defs/><g><rect fill="#FFFFFF" height="313.9102" style="stroke:#181818;stroke-width:1.0;" width="10" x="60" y="93.6211"/><rect fill="#FFFFFF" height="281.6191" style="stroke:#181818;stroke-width:1.0;" width="10" x="225" y="116.9121"/><rect fill="#FFFFFF" height="219.0371" style="stroke:#181818;stroke-width:1.0;" width="10" x="445" y="148.2031"/><rect fill="#FFFFFF" height="156.4551" style="stroke:#181818;stroke-width:1.0;" width="10" x="670" y="179.4941"/><rect fill="#FFFFFF" height="31.291" style="stroke:#181818;stroke-width:1.0;" width="10" x="916" y="210.7852"/><rect fill="#FFFFFF" height="31.291" style="stroke:#181818;stroke-width:1.0;" width="10" x="916" y="273.3672"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="65" x2="65" y1="83.6211" y2="416.5313"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="230" x2="230" y1="83.6211" y2="416.5313"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="450" x2="450" y1="83.6211" y2="416.5313"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="675" x2="675" y1="83.6211" y2="416.5313"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="921" x2="921" y1="83.6211" y2="416.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="5" y="80.1074">Marketing director</text><ellipse cx="65" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M65,21.5 L65,48.5 M52,29.5 L78,29.5 M65,48.5 L52,63.5 M65,48.5 L78,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="5" y="430.6387">Marketing director</text><ellipse cx="65" cy="442.6523" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M65,450.6523 L65,477.6523 M52,458.6523 L78,458.6523 M65,477.6523 L52,492.6523 M65,477.6523 L78,492.6523 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="154" x="153" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="160" y="72.1074">SubscriptionController</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="154" x="153" y="415.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="140" x="160" y="437.6387">SubscriptionController</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="266" x="317" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="324" y="72.1074">subscriptionService:SubscriptionService</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="266" x="317" y="415.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="252" x="324" y="437.6387">subscriptionService:SubscriptionService</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="164" x="593" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="600" y="72.1074">SubscriptionServiceImpl</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="164" x="593" y="415.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="600" y="437.6387">SubscriptionServiceImpl</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="308" x="767" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="294" x="774" y="72.1074">subscriptionRepository:SubscriptionRepository</text><rect fill="#E2E2F0" height="32.6211" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="308" x="767" y="415.5313"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="294" x="774" y="437.6387">subscriptionRepository:SubscriptionRepository</text><rect fill="#FFFFFF" height="313.9102" style="stroke:#181818;stroke-width:1.0;" width="10" x="60" y="93.6211"/><rect fill="#FFFFFF" height="281.6191" style="stroke:#181818;stroke-width:1.0;" width="10" x="225" y="116.9121"/><rect fill="#FFFFFF" height="219.0371" style="stroke:#181818;stroke-width:1.0;" width="10" x="445" y="148.2031"/><rect fill="#FFFFFF" height="156.4551" style="stroke:#181818;stroke-width:1.0;" width="10" x="670" y="179.4941"/><rect fill="#FFFFFF" height="31.291" style="stroke:#181818;stroke-width:1.0;" width="10" x="916" y="210.7852"/><rect fill="#FFFFFF" height="31.291" style="stroke:#181818;stroke-width:1.0;" width="10" x="916" y="273.3672"/><polygon fill="#181818" points="213,112.9121,223,116.9121,213,120.9121,217,116.9121" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="70" x2="219" y1="116.9121" y2="116.9121"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="77" y="111.6494">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="88" y="111.6494">GET(/api/sub/mySub)</text><polygon fill="#181818" points="433,144.2031,443,148.2031,433,152.2031,437,148.2031" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="235" x2="439" y1="148.2031" y2="148.2031"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="242" y="142.9404">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="94" x="253" y="142.9404">findOne(Long id)</text><polygon fill="#181818" points="658,175.4941,668,179.4941,658,183.4941,662,179.4941" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="455" x2="664" y1="179.4941" y2="179.4941"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="462" y="174.2314">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="94" x="473" y="174.2314">findOne(Long id)</text><polygon fill="#181818" points="904,206.7852,914,210.7852,904,214.7852,908,210.7852" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="680" x2="910" y1="210.7852" y2="210.7852"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="687" y="205.5225">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="698" y="205.5225">findByUser(user)</text><polygon fill="#181818" points="691,238.0762,681,242.0762,691,246.0762,687,242.0762" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="685" x2="920" y1="242.0762" y2="242.0762"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="697" y="236.8135">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="708" y="236.8135">Username</text><polygon fill="#181818" points="904,269.3672,914,273.3672,904,277.3672,908,273.3672" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="680" x2="910" y1="273.3672" y2="273.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="687" y="268.1045">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="698" y="268.1045">ResponseEntity.ok()</text><polygon fill="#181818" points="691,300.6582,681,304.6582,691,308.6582,687,304.6582" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="685" x2="920" y1="304.6582" y2="304.6582"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="697" y="299.3955">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="14" x="708" y="299.3955">ok</text><polygon fill="#181818" points="466,331.9492,456,335.9492,466,339.9492,462,335.9492" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="460" x2="674" y1="335.9492" y2="335.9492"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="472" y="330.6865">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="14" x="483" y="330.6865">ok</text><polygon fill="#181818" points="246,363.2402,236,367.2402,246,371.2402,242,367.2402" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="240" x2="449" y1="367.2402" y2="367.2402"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="252" y="361.9775">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="14" x="263" y="361.9775">ok</text><polygon fill="#181818" points="81,394.5313,71,398.5313,81,402.5313,77,398.5313" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="75" x2="229" y1="398.5313" y2="398.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="87" y="393.2686">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="47" x="105" y="393.2686">200 : ok</text><!--MD5=[a4f3bdf962e3335d69b0ec8f66ca80ce]
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+
+activate User
+
+User -> Ctrl: GET(/api/sub/mySub)
+Ctrl -> Service: findOne(Long id)
+Service -> Impl: findOne(Long id)
+Impl -> Repo: findByUser(user)
+Repo - -> Impl: Username
+Impl -> Repo: ResponseEntity.ok()
+Repo - -> Impl: ok
+Impl - -> Service: ok
+Service - -> Ctrl: ok
+Ctrl - -> User: 200 : ok
+@enduml
+
+@startuml
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+
+activate User
+
+User -> Ctrl: GET(/api/sub/mySub)
+Ctrl -> Service: findOne(Long id)
+Service -> Impl: findOne(Long id)
+Impl -> Repo: findByUser(user)
+Repo - -> Impl: Username
+Impl -> Repo: ResponseEntity.ok()
+Repo - -> Impl: ok
+Impl - -> Service: ok
+Service - -> Ctrl: ok
+Ctrl - -> User: 200 : ok
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 13:22:17 WET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

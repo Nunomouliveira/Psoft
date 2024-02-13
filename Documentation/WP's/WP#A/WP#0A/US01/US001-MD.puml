@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+hide circle
+hide methods
+left to right direction
+
+
+class User{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+}
+
+class Roles{}
+
+User "1" --- "1..*" Roles: has
+User "1" -down-- "1" User: Admin bootstraps himself
+
+
+@enduml

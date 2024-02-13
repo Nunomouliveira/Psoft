@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "Subscription" as Subscription
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+
+activate User
+
+User -> Ctrl: PATCH(/api/sub/renew)
+Ctrl -> Service: RenewAnnualSubscription(long id);
+Service -> Impl: RenewAnnualSubscription(long id);
+Impl -> Repo: findSubscriptionIdByUserId(id)
+Repo --> Impl: IdSub
+Impl -> Repo: getById(idSub)
+Repo --> Impl: subscription
+Impl -> Subscription: setRenewDate(LocalDate.now().plusYears(1));
+Subscription --> Impl: Ok
+Impl -> Subscription: setRenewDate(LocalDate.now().plusMonths(1));
+Subscription --> Impl: Ok
+Impl -> Subscription: setSubState(SubscriptionStatus.Active);
+Subscription --> Impl: Ok
+Impl -> Repo: save(subscription)
+Repo --> Impl: Ok
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 200: Ok
+@enduml

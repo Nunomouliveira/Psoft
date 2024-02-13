@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+title Promote a Plan
+
+autoactivate on
+autonumber
+
+actor "Marketing Director" as MarketingDirector
+participant ":System" as System
+
+activate MarketingDirector
+
+MarketingDirector -> System: Patch(/api/plan/{idPlan})
+System --> MarketingDirector: 200:OK
+
+@enduml

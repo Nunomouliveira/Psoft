@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "planRepository:planRepository" as Repo
+participant "subscriptionRepository:SubscriptionRepository" as RepoSub
+participant "subscription:Subscription" as Subscription
+participant "revenueByPlan:RevenueByPlan" as RevenPlan
+participant "Plan" as Plan
+
+activate User
+
+User -> Ctrl: GET(/api/plan/dashboard/totalRevenueByPlan?&page=&size=)
+Ctrl -> Service: findRevenueByPlan(Integer page, Integer batchSize)
+Service -> Impl: findRevenueByPlan(Integer page, Integer batchSize)
+Impl -> Repo : findSomePlans()
+Repo --> Impl : plans
+Impl -> RevenPlan :List<RevenueByPlan>
+RevenPlan --> Impl : List
+loop list plans
+
+    Impl -> RevenueByPlan**: create
+    RevenueByPlan --> Impl : RevenueByPlan
+
+    Impl -> RepoSub : findByPlanAndYear()
+    RepoSub --> Impl : List<Subscription>
+    Impl -> RepoSub : findByPlanAndYear()
+    RepoSub --> Impl : List<Subscription>
+    Impl -> RepoSub : findByPlanAndYear()
+    RepoSub --> Impl : List<Subscription>
+
+    Impl -> Subscription : List<Subscription>
+    Subscription --> Impl : List<Subscription>
+
+    loop for list subs
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getMonthlyFee()
+        Plan --> Impl : MonthlyFee
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getMonthlyFee()
+        Plan --> Impl : MonthlyFee
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getAnnualFee()
+        Plan --> Impl : AnnualFee
+
+        Impl -> Subscription: getPlan()
+        Subscription --> Impl : plan
+        Impl -> Plan : getAnnualFee()
+        Plan --> Impl : AnnualFee
+
+
+    end
+
+    Impl->RevenPlan: setTotalRevenue()
+    RevenPlan --> Impl : added to list
+end
+Impl --> Service
+Service --> Ctrl
+Ctrl -->User:200:OK
+@enduml

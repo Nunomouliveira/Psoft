@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autoactivate on
+autonumber
+
+actor "Marketing director" as User
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "editPlanMapper:EditPlanMapper" as EditMapper
+participant "Plan" as Plan
+participant "planRepository:planRepository" as Repo
+activate User
+
+User -> Ctrl: PUT(/api/plan/create/{planType})
+Ctrl -> Service: create(String planType,EditPlanRequest resource)
+Service -> Impl: create(String planType,EditPlanRequest resource)
+Impl -> EditMapper: create(String planType,EditPlanRequest resource)
+EditMapper -> Plan**: create(String planType,EditPlanRequest resource)
+Plan --> EditMapper: plan
+EditMapper -> Repo: save(plan)
+Repo --> EditMapper: ok
+EditMapper --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 201:Created
+@enduml

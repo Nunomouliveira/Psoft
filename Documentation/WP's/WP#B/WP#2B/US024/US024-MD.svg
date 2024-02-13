@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="220px" preserveAspectRatio="none" style="width:387px;height:220px;background:#FFFFFF;" version="1.1" viewBox="0 0 387 220" width="387px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="161" x="106" y="25.1074">migrate all subscribers</text><!--MD5=[545507b7baa8aade59e57dce916f0187]
+class Subscription--><g id="elem_Subscription"><rect codeLine="8" fill="#F1F1F1" height="166.9688" id="Subscription" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="100" x="280" y="46.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="291" y="66.7285">Subscription</text><line style="stroke:#181818;stroke-width:0.5;" x1="281" x2="379" y1="75.2422" y2="75.2422"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="16" x="286" y="94.3496">-id</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="286" y="112.9707">-subType</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="286" y="131.5918">-date</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61" x="286" y="150.2129">-subState</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="286" y="168.834">-feeType</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="286" y="187.4551">-cancellations</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="286" y="206.0762">-subscriptions</text></g><!--MD5=[d9a14d8b67a48259e0a64f890aed39c0]
+class MarktingDirector--><g id="elem_MarktingDirector"><rect codeLine="18" fill="#F1F1F1" height="129.7266" id="MarktingDirector" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="110" x="7" y="65.1211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="10" y="85.2285">MarktingDirector</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="116" y1="93.7422" y2="93.7422"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="13" y="112.8496">-username</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="59" x="13" y="131.4707">-fullName</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="13" y="150.0918">-password</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="13" y="168.7129">-rePassword</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="13" y="187.334">-authorities</text></g><!--MD5=[2bb889658b816b8a30c00f35fa113e57]
+link MarktingDirector to Subscription--><g id="link_MarktingDirector_Subscription"><path codeLine="26" d="M117.2,130.1211 C163.24,130.1211 228.51,130.1211 274.6,130.1211 " fill="none" id="MarktingDirector-to-Subscription" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="279.84,130.1211,270.84,126.1211,274.84,130.1211,270.84,134.1211,279.84,130.1211" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="126" x="135.5" y="123.1494">Migrates to other plan</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="125.0878" y="126.0452">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="252.132" y="145.2591">1..*</text></g><!--MD5=[032a9546b7e05c87889faf24a6e6b506]
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+title migrate all subscribers
+
+class Subscription{
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+    -cancellations
+    -subscriptions
+}
+
+class MarktingDirector{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+}
+
+MarktingDirector "1" -right- -> "1..*" Subscription: Migrates to other plan
+
+@enduml
+
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+title migrate all subscribers
+
+class Subscription{
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+    -cancellations
+    -subscriptions
+}
+
+class MarktingDirector{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+}
+
+MarktingDirector "1" -right- -> "1..*" Subscription: Migrates to other plan
+
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 13:22:17 WET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "New customer" as User
+participant ":PlanController" as Ctrl
+participant "planService:PlanService" as Service
+participant "planServiceImpl:PlanServiceImpl" as Impl
+participant "planRepository:planRepository" as Repo
+
+activate User
+
+User -> Ctrl: GET(/api/plan/all)
+Ctrl -> Service: findAll_User()
+Service -> Impl: findAll_User()
+Impl -> Repo: findAll()
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: plan
+Ctrl --> User: 200:OK
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+
+class ACME{
+}
+
+class Plan{
+    -nMins
+    -maxDevices
+    -musicCollections
+    -musicSuggestions
+    -monthlyFee
+    -annualFee
+    -planState
+    -planType
+    -HTMLdescription
+    -planPromote
+   }
+
+ACME "1" -> "*" Plan: make
+
+
+@enduml

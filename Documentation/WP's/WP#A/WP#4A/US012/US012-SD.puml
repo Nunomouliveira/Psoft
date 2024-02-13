@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autoactivate on
+autonumber
+
+actor "Subscriber" as User
+participant ":DeviceController" as Ctrl
+participant "deviceService:DeviceService" as Service
+participant "deviceServiceImpl:DeviceServiceImpl" as Impl
+participant "editDeviceMapper:EditDeviceMapper" as EditMapper
+participant "Device" as Device
+participant "deviceRepository:deviceRepository" as Repo
+activate User
+
+User -> Ctrl: DELETE(/api/device/{macAddress})
+Ctrl -> Service: deleteByMacAddress(String macAddress, long desiredVersion)
+Service -> Impl: deleteByMacAddress(String macAddress, long desiredVersion)
+Impl -> EditMapper: deleteByMacAddress(String macAddress, long desiredVersion)
+EditMapper -> Device**: deleteByMacAddress(String macAddress, long desiredVersion)
+Device --> EditMapper: device
+EditMapper -> Repo: delete(device)
+Repo --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 204 : No Content
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+
+
+class PlanController {
+ +findAll(): Iterable<PlanView>
+}
+
+
+
+class PlanService {
+ +findAll_User(): Iterable<Plan>
+}
+class ProductServiceImpl{
+ +findAll_User(): Iterable<Plan>
+}
+
+interface PlanRepository <<interface>> {
+ +findAll(): Result
+}
+
+
+class Plan {
+    -nMins
+    -maxDevices
+    -musicCollections
+    -musicSuggestions
+    -monthlyFee
+    -annualFee
+    -planState
+    -planType
+    -planPromote
+    -HTMLdescription
+    Plan(int nMins, int maxDevices, int musicCollections, string musicSuggestions, double monthlyFee, double annualFee, PlanState planState, string planType,string HTMLdescription)
+}
+
+
+PlanRepository "1" --> "0..*" Plan:  records
+PlanController ..> PlanService
+ProductServiceImpl ..> PlanRepository
+ProductServiceImpl ..> Plan
+PlanService ..> Plan
+ProductServiceImpl .up.|> PlanService
+
+@enduml

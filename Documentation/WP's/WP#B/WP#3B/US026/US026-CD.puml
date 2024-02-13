@@ -1,0 +1,82 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+hide circle
+skinparam classAttributeIconSize 0
+
+
+
+class PlanController {
+ +RevenueByPlan(): ResponseEntity<PlanView>
+}
+
+
+
+class PlanService {
+ +findRevenueByPlan(Integer page, Integer batchSize): List<RevenueByPlan>
+}
+
+class PlanServiceImpl{
+ +findRevenueByPlan(Integer page, Integer batchSize): List<RevenueByPlan>
+}
+
+interface PlanRepository <<interface>> {
+  +findSomePlans(pageable): Plan
+}
+interface SubscriptionRepository <<interface>> {
+  +findByPlanAndYear(plan, currentYear, SubscriptionStatus.Active): List<Subscription>
+}
+class Subscription {
+    -id
+    -subType
+    -date
+    -subState
+    -feeType
+    (final Plan plan, final User user, final String feeType)
+       +getFeeType()
+       +getPlan()
+       +getSubState()
+}
+class RevenueByPlan {
+    -planType
+    -totalRevenue
+     RevenueByPlan(final Plan plan)
+     +setTotalRevenue(totalRevenue)
+}
+
+class Plan {
+    -nMins
+    -maxDevices
+    -musicCollections
+    -musicSuggestions
+    -monthlyFee
+    -annualFee
+    -planState
+    -planType
+    -planPromote
+    -HTMLdescription
+    Plan(final String planType, final Integer numMinutes, final Integer maxDevices, final Integer musicCollections,
+                        final String musicSuggestions, final Integer monthlyFee, final Integer annualFee,
+                        final String htmlDescription)
+    +getAnnualFee()
+    +getMonthlyFee()
+}
+
+
+PlanRepository "1" --> "0..*" Plan:  records
+PlanController ..> PlanService
+PlanServiceImpl ..> PlanRepository
+
+PlanServiceImpl ..> Plan
+PlanService ..> Plan
+PlanServiceImpl .up.|> PlanService
+
+SubscriptionRepository "1" --> "0..*" Subscription:  records
+RevenueByPlan "1" --> "*"Plan
+PlanServiceImpl ..> SubscriptionRepository
+
+PlanServiceImpl ..> Subscription
+PlanServiceImpl..> RevenueByPlan
+Plan "1" --> "*" Subscription
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Admin" as User
+participant ":UserBoostrapper" as Ctrl
+participant "userRepo:UserRepository" as Repo
+
+activate User
+
+User -> Ctrl: asks to bootstrap user credential data
+loop for each credential
+    Ctrl -> Repo: checks if the credentials already exist
+    Repo --> Ctrl: if not, creates user with the appropriate role and saves it
+end loop
+
+@enduml

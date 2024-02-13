@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+title Update the details of my Device (name and description)
+
+
+class Device{
+    -id
+    -idSub
+    -name
+    -description
+}
+
+class User{
+    -username
+    -fullName
+    -password
+    -rePassword
+    -authorities
+
+}
+
+
+
+User "1" -right--> "1..*" Device: updates
+
+@enduml

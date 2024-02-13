@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+
+autoactivate on
+autonumber
+
+actor "Product Manager/ Financial Director" as ProductManagerFinancialDirector
+participant ":System" as System
+
+activate ProductManagerFinancialDirector
+
+ProductManagerFinancialDirector -> System:  GET(/api/plan/dashboard/futureCashFlowsByPlan?numberOfMonths=&page=&size=)
+System --> ProductManagerFinancialDirector: 200:OK
+
+@enduml

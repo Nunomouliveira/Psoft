@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="218px" preserveAspectRatio="none" style="width:394px;height:218px;background:#FFFFFF;" version="1.1" viewBox="0 0 394 218" width="394px" zoomAndPan="magnify"><defs/><g><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><g id="elem_User"><rect codeLine="7" fill="#F1F1F1" height="36.6211" id="User" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="35" x="7" y="90.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="10" y="110.6074">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="41" y1="119.1211" y2="119.1211"/></g><!--MD5=[b3be63f686ea56a43222251ea576b753]
+class Plan--><g id="elem_Plan"><rect codeLine="11" fill="#F1F1F1" height="204.2109" id="Plan" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="131" x="256" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="307.5" y="27.1074">Plan</text><line style="stroke:#181818;stroke-width:0.5;" x1="257" x2="386" y1="35.6211" y2="35.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="262" y="54.7285">-nMins</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="262" y="73.3496">-maxDevices</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="262" y="91.9707">-musicCollections</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="119" x="262" y="110.5918">-musicSuggestions</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="262" y="129.2129">-monthlyFee</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="262" y="147.834">-annualFee</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="262" y="166.4551">-planState</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="64" x="262" y="185.0762">-planType</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="262" y="203.6973">-activeSubs</text></g><!--MD5=[259bcb04f36b84449261ee57491c3e28]
+link User to Plan--><g id="link_User_Plan"><path codeLine="25" d="M42.19,109 C82.23,109 181.67,109 250.4,109 " fill="none" id="User-to-Plan" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="255.71,109,246.71,105,250.71,109,246.71,113,255.71,109" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="177" x="60.5" y="102.0283">wants to know the Plan details</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="7" x="50.0038" y="103.0175">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="20" x="227.8942" y="123.909">1..*</text></g><!--MD5=[d7d52f2d98adb4e50c4913dbbdb9232f]
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+
+class User{
+
+}
+
+class Plan {
+  -nMins
+  -maxDevices
+  -musicCollections
+  -musicSuggestions
+  -monthlyFee
+  -annualFee
+  -planState
+  -planType
+  -activeSubs
+  +getDetails(): string
+}
+
+
+User "1" -> "1..*" Plan: wants to know the Plan details
+
+
+@enduml
+
+@startuml
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+
+class User{
+
+}
+
+class Plan {
+  -nMins
+  -maxDevices
+  -musicCollections
+  -musicSuggestions
+  -monthlyFee
+  -annualFee
+  -planState
+  -planType
+  -activeSubs
+  +getDetails(): string
+}
+
+
+User "1" -> "1..*" Plan: wants to know the Plan details
+
+
+@enduml
+
+PlantUML version 1.2022.13(Sat Nov 19 13:22:17 WET 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>

@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/class-diagram
+hide circle
+skinparam classAttributeIconSize 0
+hide methods
+
+
+class User{
+
+}
+
+class Subscription{
+     -id
+        -subType
+        -date
+        -subState
+        -feeType
+}
+
+
+User "1" -> "1..*" Subscription: Cancels
+
+
+@enduml

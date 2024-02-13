@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "MarketingDirector" as User
+participant "SubscriptionController" as Ctrl
+participant "subscriptionService:SubscriptionService" as Service
+participant "SubscriptionServiceImpl" as Impl
+participant "Subscription" as Subscription
+participant "subscriptionRepository:SubscriptionRepository" as Repo
+participant "planRepository:PlanRepository" as PlanRepo
+activate User
+
+User -> Ctrl: PUT(/api/sub/)
+Ctrl -> Service: migrateAllSubscribers(resource.getCurrentPlanId(), resource.getNewPlanId());
+Service -> Impl: migrateAllSubscribers(resource.getCurrentPlanId(), resource.getNewPlanId());
+Impl -> PlanRepo: findById(newPlanId)
+PlanRepo --> Impl: plan
+Impl -> PlanRepo: findById(currentPlanId)
+PlanRepo --> Impl: plan1
+
+loop until ther "is" subs
+
+    Impl -> Repo : findSubscriptionsByPlanType(plan1.getPlanType(), pageable)
+    Repo --> Impl : subs with that plan
+
+    loop for the  subs
+
+        Impl -> Subscription : setPlan(plan)
+        Subscription --> Impl: OK
+
+    end
+
+    Impl -> Repo : saveAll(subscriptions)
+    Repo --> Impl:OK
+
+end
+Impl -> Repo : findAll()
+Repo --> Impl: OK
+Impl --> Service: ok
+Service --> Ctrl: ok
+Ctrl --> User: 200:Ok
+@enduml
+
+saveAll(subscriptions);

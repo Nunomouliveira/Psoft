@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autoactivate on
+autonumber
+
+actor "Subscriber" as User
+participant ":DeviceController" as Ctrl
+participant "deviceService:DeviceService" as Service
+participant "deviceServiceImpl:DeviceServiceImpl" as Impl
+participant "deviceRepository:deviceRepository" as Repo
+
+activate User
+
+User -> Ctrl: GET(/api/device/myDevices)
+Ctrl -> Service: listMyDevices()
+Service -> Impl: listMyDevices()
+Impl -> Repo: listMyDevices()
+Repo --> Impl: ok
+Impl --> Service: ok
+Service --> Ctrl: device
+Ctrl --> User: 200:OK
+
+@enduml
